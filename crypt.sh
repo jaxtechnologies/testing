@@ -1,4 +1,5 @@
 #!/bin/bash
+# Requires zip gpg OPTIONAL git
 
 GPGMAIL=user@test.com
 CRYPTPATH=`pwd`
