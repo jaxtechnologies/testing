@@ -1,12 +1,14 @@
 #!/bin/bash
 
-GPGMAIL=<mail_box>
+GPGMAIL=user@test.com
+CRYPTPATH=`pwd`
 
 if [ -d "$1" ]; then
 	echo "$1 is a directory"
-	zip -r "$1.zip" $1
-	gpg --recipient $GPGMAIL --encrypt "$1.zip"
-	rm "$1.zip"
+	echo "$CRYPTPATH"
+	zip -r "$CRYPTPATH/$1.zip" $1
+	gpg --recipient $GPGMAIL --encrypt "$CRYPTPATH/$1.zip"
+	rm "$CRYPTPATH/$1.zip"
 	exit 0
 elif [ -f "$1" ] && [ "$1" != *.gpg ]; then
 	echo "$1 is a file"
